@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -21,15 +21,49 @@ namespace Human
                  new SpidreMan("peter", 21, 120),
                  new SuperMan("clark", 28, 530),
         };
-            foreach (ISuperhero in allheroes[])
+
+            ActiveHero(a);
+            IdentifyHero(b);
+            foreach (ISuperhero  i in allheroes)
             {
-                ActiveHero();
+                ActiveHero(i);
+                Console.WriteLine(i);
             }
         }
-        public static string ActiveHero(ISuperhero D)
+        static void ActiveHero(ISuperhero D)
         {
-
-            return Console.WriteLine(D.ActiveSuperPowers); ;
+            
         }
-    }
+        static void IdentifyHero(ISuperhero d)
+        {
+            if (d is SuperMan)
+            {
+                Console.WriteLine("superman detected");
+            }
+            else if (d is SpidreMan)
+            {
+                Console.WriteLine("spidrman detected");
+            }
+            else
+            {
+                Console.WriteLine("Flash detected");
+            }
+        }
+        static void GetMoreHeroData(ISuperhero d)
+        {
+            if (d is SuperMan)
+            {
+                SuperMan a = d is SuperMan;
+            }
+            else if (d is SpidreMan)
+            {
+                
+            }
+            else
+            {
+                
+            }
+
+
+        }
 }
