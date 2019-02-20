@@ -49,21 +49,46 @@ namespace Human
                 Console.WriteLine("Flash detected");
             }
         }
-        static void GetMoreHeroData(ISuperhero d)
+       public static void GetMoreHeroData(ISuperHero hero)
         {
-            if (d is SuperMan)
+            if(hero is Flash)
             {
-                SuperMan a = d is SuperMan;
+                Flash f = hero as Flash;
+                Console.WriteLine("Flash voltage:{0}\n", f.Voltage);
             }
-            else if (d is SpidreMan)
+            else if(hero is Superman)
             {
-                
+                Superman s = hero as Superman;
+                Console.WriteLine("Superman speed:{0}\n", s.Speed);
             }
             else
             {
-                
+                if(hero is Spiderman)
+                {
+                    Spiderman sp = hero as Spiderman;
+                    Console.WriteLine("Spiderman web left:{0}\n", sp.WebLeft);
+                }
             }
-
-
         }
+        public static ISuperHero CreateHero(string heroName)
+        {
+            ISuperHero result = null;
+            switch (heroName)
+            {
+                case "Spiderman":
+                    Spiderman spiderman = new Spiderman("Spiderman", 16, 10);
+                    result = spiderman;
+                    break;
+                case "Superman":
+                    Superman superman = new Superman("Superman", 30, 300_000);
+                    result = superman;
+                    break;
+                case "Flash":
+                    Flash flash = new Flash("Flash", 20, 20_000);
+                    result = flash;
+                    break;
+            }
+                
+            return result;
+        } 
 }
